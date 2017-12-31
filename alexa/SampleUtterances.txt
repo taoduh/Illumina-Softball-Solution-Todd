@@ -1,0 +1,17 @@
+PlayMeCoach complain to captain
+TeammateList who's on my team
+TeammateList teammates
+TeammateList team mates
+TeammateList drinking buddies
+RecordSoFar what's my record
+RecordSoFar what's my team record
+RecordSoFar team record
+RecordSoFar how many wins and losses
+ScheduleOfStrength strength of schedule
+NextOpponent who do I play next
+NextOpponent who do we play next
+NextOpponent next opponent
+LastOpponent who did I play last
+LastOpponent who did we play last
+LastOpponent last opponent
+ChampPrediction who will win it all

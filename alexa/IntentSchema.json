@@ -1,0 +1,67 @@
+{
+  "intents": [
+    {
+      "intent": "PlayMeCoach",
+      "slots": [
+        {
+          "name": "TalkTalk",
+          "type": "AMAZON.LITERAL"
+        }
+      ]
+    },
+    {
+      "intent": "TeammateList",
+      "slots": [
+        {
+          "name": "TalkTalk",
+          "type": "AMAZON.LITERAL"
+        }
+      ]
+    },
+    {
+      "intent": "RecordSoFar",
+      "slots": [
+        {
+          "name": "TalkTalk",
+          "type": "AMAZON.LITERAL"
+        }
+      ]
+    },
+    {
+      "intent": "ScheduleOfStrength",
+      "slots": [
+        {
+          "name": "TalkTalk",
+          "type": "AMAZON.LITERAL"
+        }
+      ]
+    },
+    {
+      "intent": "NextOpponent",
+      "slots": [
+        {
+          "name": "TalkTalk",
+          "type": "AMAZON.LITERAL"
+        }
+      ]
+    },
+    {
+      "intent": "LastOpponent",
+      "slots": [
+        {
+          "name": "TalkTalk",
+          "type": "AMAZON.LITERAL"
+        }
+      ]
+    },
+    {
+      "intent": "ChampPrediction",
+      "slots": [
+        {
+          "name": "TalkTalk",
+          "type": "AMAZON.LITERAL"
+        }
+      ]
+    }
+  ]
+}

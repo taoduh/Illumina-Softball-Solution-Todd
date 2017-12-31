@@ -1,0 +1,5 @@
+*.pdf
+*.xlsx
+target/
+.idea/
+src/main/scala/com/toddnewman/alexa/softballskill/PlayingAround.scala
