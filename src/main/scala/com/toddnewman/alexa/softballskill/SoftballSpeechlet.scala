@@ -29,6 +29,7 @@ class SoftballSpeechlet extends SpeechletV2 {
     getAskResponse("Softball Bot", "Welcome to the Softball Bot, ask me a question")
   }
 
+  @SuppressWarnings(Array("org.wartremover.warts.Var", "org.wartremover.warts.Null"))
   override def onIntent(requestEnvelope: SpeechletRequestEnvelope[IntentRequest]): SpeechletResponse = {
     logEvent("onIntent", requestEnvelope.getRequest, requestEnvelope.getSession)
 
@@ -52,31 +53,27 @@ class SoftballSpeechlet extends SpeechletV2 {
   /*
    * intent speech responses
    */
-  private def playMeIntentSpeech() = "Put me in coach " + PlayerService.myCaptainName + ", I'm ready to play"
+  private def playMeIntentSpeech() = s"Put me in coach ${PlayerService.myCaptainName}, I'm ready to play"
 
-  private def teammateIntentSpeech() = "Your crew includes " + TeamService.myTeammateNamesFormatted
+  private def teammateIntentSpeech() = s"Your crew includes ${PlayerService.myTeammateNamesFormatted}"
 
   private def recordIntentSpeech() = {
     val winLoss = TeamService.myWinLossRecord
-    "This season you have " + winLoss._1 + " wins and " + winLoss._2 + " losses"
+    s"This season you have ${winLoss._1} wins and ${winLoss._2} losses"
   }
 
-  private def sosIntentSpeech() = "You have played some tough teams and have a strength rating of " + TeamService.myTeamSos
+  private def sosIntentSpeech() = s"You have played some tough teams and have a strength rating of ${TeamService.myTeamSos}"
 
   private def nextOpponentIntentSpeech() = {
-    val opponent = GameService.myNextOpponent
-    opponent match {
-      case opp: Some[String] => { "Next up is " + opp.get }
-      case _ => { "Your season is complete" }
-    }
+    GameService.myNextOpponent
+      .map(opponent => s"Next up is $opponent")
+      .getOrElse("Your season is complete")
   }
 
   private def lastOpponentIntentSpeech() = {
-    val opponent = GameService.myLastOpponent
-    opponent match {
-      case opp: Some[String] => { "You just played " + opp.get }
-      case _ => { "Your season hasn't started yet" }
-    }
+    GameService.myLastOpponent
+      .map(opponent => s"You just played $opponent")
+      .getOrElse("Your season hasn't started yet")
   }
 
   private def predictionIntentSpeech() = "With a 97.44 percent certainty I can say that the league champions will be " + TeamService.myTeamName

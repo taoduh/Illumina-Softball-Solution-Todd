@@ -7,7 +7,7 @@ import java.time.format.DateTimeFormatter
 object GameData {
   val formatter: DateTimeFormatter = DateTimeFormatter.ofPattern("MM/dd/yyyy HH:mm:ss")
 
-  val games = Seq[Game](
+  val games: Seq[Game] = Seq[Game](
     new Game(1,14,12,LocalDateTime.parse("05/31/2017 18:00:00", formatter),14,9,6),
     new Game(2,10,6,LocalDateTime.parse("05/31/2017 19:00:00", formatter),18,6,6),
     new Game(3,13,9,LocalDateTime.parse("05/31/2017 20:00:00", formatter),11,15,5),

@@ -3,3 +3,4 @@
 target/
 .idea/
 src/main/scala/com/toddnewman/alexa/softballskill/PlayingAround.scala
+**/.DS_Store

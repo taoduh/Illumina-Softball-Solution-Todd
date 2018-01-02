@@ -9,31 +9,31 @@ object Schema {
   }
   import Position._
 
-  case class Player(id: Int, teamId: Int, firstName: String, lastName: String, position: Position, battingOrder: Int) {
-    def name = firstName + " " + lastName
+  final case class Player(id: Int, teamId: Int, firstName: String, lastName: String, position: Position, battingOrder: Int) {
+    def name: String = firstName + " " + lastName
   }
 
-  case class Team(id: Int, name: String, color: String, captainId: Int)
+  final case class Team(id: Int, name: String, color: String, captainId: Int)
 
-  case class Game(id: Int, homeId: Int, visitingId: Int, gameStartTime: LocalDateTime, homeScore: Int, visitingScore: Int, inningCount: Int) {
+  final case class Game(id: Int, homeId: Int, visitingId: Int, gameStartTime: LocalDateTime, homeScore: Int, visitingScore: Int, inningCount: Int) {
     import java.util.Date
-    def isParticipant(teamId: Int) = (homeId == teamId || visitingId == teamId)
-    def opponentId(teamId: Int) = if (homeId == teamId) visitingId else homeId
-    def myScore(teamId: Int) = if (homeId == teamId) homeScore else visitingScore
-    def opponentScore(teamId: Int) = if (homeId == teamId) visitingScore else homeScore
-    def startAsJavaDate(): Date = {
+    def isParticipant(teamId: Int): Boolean = (homeId == teamId || visitingId == teamId)
+    def opponentId(teamId: Int): Int = if (homeId == teamId) visitingId else homeId
+    def myScore(teamId: Int): Int = if (homeId == teamId) homeScore else visitingScore
+    def opponentScore(teamId: Int): Int = if (homeId == teamId) visitingScore else homeScore
+    def startAsJavaDate: Date = {
       import java.time.ZoneId
       Date.from(gameStartTime.atZone(ZoneId.systemDefault()).toInstant())
     }
-    def inPast() = gameStartTime.isBefore(LocalDateTime.now)
-    def inFuture() = !inPast
+    def inPast: Boolean = gameStartTime.isBefore(LocalDateTime.now)
+    def inFuture: Boolean = !inPast
   }
 
   // example of an implicit
   // adds functionality to an existing class
   implicit class PlayerDescriptiveOutputs(p: Player) {
-    def idAndName = p.id + ": " + p.name
-    def description = p.name + ": plays " + p.position + " and bats " + p.battingOrder
+    def idAndName: String = s"${p.id}: ${p.name}"
+    def description: String = s"${p.name}: plays ${p.position} and bats ${p.battingOrder}"
   }
 
 

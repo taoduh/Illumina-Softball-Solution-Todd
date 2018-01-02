@@ -4,7 +4,7 @@ import com.toddnewman.alexa.softballskill.data.Schema.{Player, Position}
 
 object PlayerData {
 
-  val players = Seq[Player](
+  val players: Seq[Player] = Seq[Player](
     new Player(1,1, "Brian", "Steffy", Position.Infield, 1),
     new Player(2,2, "Casey", "Turk", Position.Infield, 1),
     new Player(3,3, "Jared", "Peace", Position.Infield, 1),

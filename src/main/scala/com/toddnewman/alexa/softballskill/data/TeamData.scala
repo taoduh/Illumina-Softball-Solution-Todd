@@ -3,7 +3,7 @@ package com.toddnewman.alexa.softballskill.data
 import com.toddnewman.alexa.softballskill.data.Schema.Team
 
 object TeamData {
-  val teams = Seq[Team](
+  val teams: Seq[Team] = Seq[Team](
     new Team(1, "Revenge of the Smurfs", "Light Blue", 1),
     new Team(2, "GoldSchluggers", "Yellow", 2),
     new Team(3, "Mean Green Peace Machine", "Green", 3),
