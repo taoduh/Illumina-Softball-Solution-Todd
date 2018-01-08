@@ -38,6 +38,12 @@ object PlayerService {
    */
 
   def myTeammateNames: Seq[String] = teammateNames(PlayerService.myPlayerId)
-  def myTeammateNamesFormatted: String = myTeammateNames.sorted mkString(",")
+  def mySomeTeammateNamesFormatted: String = {
+    val teammates = myTeammateNames
+    val namedTeammateCount = 3
+    val teammateCount = teammates.length
+    val randomOrder = scala.util.Random.shuffle(teammates)
+    randomOrder.take(namedTeammateCount).mkString(",") + " and " + (teammateCount - namedTeammateCount).toString + " more characters"
+  }
 
 }

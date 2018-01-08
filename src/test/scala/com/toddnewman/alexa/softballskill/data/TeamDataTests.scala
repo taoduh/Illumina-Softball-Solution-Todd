@@ -18,29 +18,29 @@ class TeamDataTests extends FlatSpec with Matchers {
     captain should be ("Jared Peace")
   }
 
-  "Games including team #" + testTeamId + " " should " number 4 " in {
+  "Games including team #" + testTeamId + " " should " number 9 " in {
     val games = gameService.teamGames(testTeamId)
-    games.length should be (4)
+    games.length should be (9)
   }
   it should " include a game against team #1" in {
     val games = gameService.teamGames(testTeamId)
     games.exists(_.opponentId(testTeamId) == 1)
   }
 
-  "Team #" + testTeamId + " " should " have a win/loss of 2/2 " in {
+  "Team #" + testTeamId + " " should " have a win/loss of 4/5 " in {
     val winLoss = teamService.winLossRecord(testTeamId)
-    winLoss._1 should be (2)
-    winLoss._2 should be (2)
+    winLoss._1 should be (4)
+    winLoss._2 should be (5)
   }
 
-  "Team #" + testTeamId + " " should " have an SOS of 0.5625 " in {
+  "Team #" + testTeamId + " " should " have an SOS of 0.5061728395061729 " in {
     val sos = teamService.teamSos(testTeamId)
-    sos should be (0.5625)
+    sos should be (0.5061728395061729)
   }
 
-  "Team #" + testTeamId + " previous game " should " be against GoldSchluggers " in {
+  "Team #" + testTeamId + " previous game " should " be against Chu Fast, Chu Furious " in {
     val lastOpponent = gameService.getOpponentNameFromGame(gameService.myPreviousGame, testTeamId).get
-    lastOpponent should be ("GoldSchluggers")
+    lastOpponent should be ("Chu Fast, Chu Furious")
   }
 
 }

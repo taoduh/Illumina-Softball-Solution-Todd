@@ -1,7 +1,5 @@
 # Illumina Softball Skill
 
-A quick tour
-
 ### com.toddnewman.alexa.softballskill
 
 *SoftballSpeechlet* is the Alexa skill implementaion.  Not much to look at here, we're not doing anything complex Alexa-wise.

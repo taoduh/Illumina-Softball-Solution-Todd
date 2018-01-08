@@ -55,7 +55,7 @@ class SoftballSpeechlet extends SpeechletV2 {
    */
   private def playMeIntentSpeech() = s"Put me in coach ${PlayerService.myCaptainName}, I'm ready to play"
 
-  private def teammateIntentSpeech() = s"Your crew includes ${PlayerService.myTeammateNamesFormatted}"
+  private def teammateIntentSpeech() = s"Your crew includes ${PlayerService.mySomeTeammateNamesFormatted}"
 
   private def recordIntentSpeech() = {
     val winLoss = TeamService.myWinLossRecord
